@@ -5,11 +5,11 @@ RUN apt-get update
 RUN apt-get install -y libc6-dev-i386 autoconf
 COPY juds.tar.gz /
 RUN tar -xzvf juds.tar.gz
-RUN cd juds
-RUN ./autoconf.sh
-RUN ./configure
-RUN make
-RUN make install
+RUN juds/autoconf.sh
+RUN juds/configure
+RUN juds/make
+RUN juds/make install
+RUN rm -rf juds
 
 # setup hlf bftsmart
 COPY hyperledger-bftsmart.tar.gz /
