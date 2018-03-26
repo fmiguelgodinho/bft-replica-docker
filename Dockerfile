@@ -17,7 +17,3 @@ ENV LOCAL_HLF_INSTALL $GOPATH/src/github.com/hyperledger/fabric
 COPY hyperledger-bftsmart.tar.gz $LOCAL_HLF_INSTALL/
 RUN cd $LOCAL_HLF_INSTALL && mkdir hyperledger-bftsmart && tar -xzf hyperledger-bftsmart.tar.gz hyperledger-bftsmart -C hyperledger-bftsmart && rm -f hyperledger-bftsmart.tar.gz
 RUN cd $LOCAL_HLF_INSTALL/hyperledger-bftsmart && ant
-# run hlf bftsmart replica
-RUN echo $LOCAL_HLF_INSTALL/hyperledger-bftsmart
-ENV $BFT_ORDERING_SERVICE_NODE_ID 0
-RUN cd $LOCAL_HLF_INSTALL/hyperledger-bftsmart && ./startReplica.sh $BFT_ORDERING_SERVICE_NODE_ID
